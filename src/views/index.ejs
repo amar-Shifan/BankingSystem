@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking System</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+    <header>
+        <h2>Banking System</h2>
+    </header>
+
+    <div class="container">
+        <h1>Bank Account Manager</h1>
+
+        <form action="/create" method="POST">
+            <input type="text" name="accountNumber" placeholder="Account Number" required>
+            <input type="number" name="initialBalance" placeholder="Initial Balance" required>
+            <button type="submit">Create Account</button>
+        </form>
+
+        <form action="/deposit" method="POST">
+            <input type="text" name="accountNumber" placeholder="Account Number" required>
+            <input type="number" name="amount" placeholder="Deposit Amount" required>
+            <button type="submit">Deposit</button>
+        </form>
+
+        <h2>Account List:</h2>
+        <ul>
+            <% accounts.forEach(account => { %>
+                <li>Account: <%= account.getAccountNumber() %> | Balance: ₹<%= account.getBalance() %></li>
+            <% }); %>
+        </ul>
+    </div>
+
+    <footer>
+        <p>© 2025 Banking System</p>
+    </footer>
+
+</body>
+</html>
